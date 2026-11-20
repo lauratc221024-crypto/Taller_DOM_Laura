@@ -1,0 +1,19 @@
+# Dependencias
+node_modules/
+node_modules_old/
+
+# Expo / Metro
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+.metro-health-check*
+
+# Variables de entorno locales
+.env
+.env*.local
+
+# Sistema y registros
+.DS_Store
+Thumbs.db
+*.log
