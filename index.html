@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactividad con el DOM</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main class="tarjeta">
+    <h1 class="titulo">Interactividad con el DOM</h1>
+    <p class="subtitulo">
+      Haz clic en el botón y observa cómo JavaScript actualiza el contador y registra cada like.
+    </p>
+
+    <div class="contador-contenedor">
+      <span id="contador" class="contador" aria-live="polite">0</span>
+      <span class="contador-etiqueta">likes</span>
+    </div>
+
+    <div class="acciones">
+      <button id="btn-like" class="btn-like" type="button">Dar like</button>
+      <button id="btn-restar" class="btn-restar" type="button" disabled>Restar like</button>
+      <button id="btn-reiniciar" class="btn-reiniciar" type="button">Reiniciar</button>
+    </div>
+
+    <section class="registros">
+      <h2 class="registros-titulo">Registro de clics</h2>
+
+      <table class="tabla-registros">
+        <thead>
+          <tr>
+            <th scope="col">Nº Clic</th>
+            <th scope="col">Hora</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo-tabla">
+          <!-- Las filas se insertan dinámicamente con JavaScript -->
+        </tbody>
+      </table>
+
+      <p id="sin-registros" class="sin-registros">Aún no hay clics registrados.</p>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
