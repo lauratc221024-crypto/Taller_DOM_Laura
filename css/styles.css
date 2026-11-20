@@ -1,0 +1,306 @@
+/* ============================================================
+   Estilos generales
+   ============================================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background-color: #e9ecef;
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #212529;
+}
+
+/* ============================================================
+   Tarjeta principal
+   ============================================================ */
+.tarjeta {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.titulo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  text-align: center;
+  color: #1c1c1c;
+}
+
+.subtitulo {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #6c757d;
+}
+
+/* ============================================================
+   Contador
+   ============================================================ */
+.contador-contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 28px 0 20px;
+}
+
+.contador {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #0d6efd;
+}
+
+.contador-etiqueta {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #6c757d;
+}
+
+/* ============================================================
+   Botones de acción
+   ============================================================ */
+.acciones {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-like,
+.btn-restar,
+.btn-reiniciar {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.btn-like {
+  background-color: #198754;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(25, 135, 84, 0.35);
+}
+
+.btn-like:hover {
+  background-color: #157347;
+  box-shadow: 0 6px 14px rgba(25, 135, 84, 0.45);
+}
+
+.btn-like:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 6px rgba(25, 135, 84, 0.35);
+}
+
+.btn-restar {
+  background-color: #ffffff;
+  color: #495057;
+  border: 2px solid #ced4da;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.btn-restar:hover:not(:disabled) {
+  background-color: #f1f3f5;
+  border-color: #adb5bd;
+}
+
+.btn-restar:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.btn-restar:disabled {
+  color: #adb5bd;
+  background-color: #f8f9fa;
+  border-color: #e9ecef;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.btn-like:focus-visible,
+.btn-restar:focus-visible,
+.btn-reiniciar:focus-visible {
+  outline: 3px solid #86b7fe;
+  outline-offset: 3px;
+}
+
+.btn-reiniciar {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid #dc3545;
+  border-radius: 10px;
+  background: #fff;
+  color: #dc3545;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.btn-reiniciar:hover { background: #dc3545; color: #fff; }
+
+/* ============================================================
+   Tabla de registros
+   ============================================================ */
+.registros {
+  margin-top: 32px;
+}
+
+.registros-titulo {
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #343a40;
+}
+
+.tabla-registros {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabla-registros th,
+.tabla-registros td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tabla-registros th {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #495057;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.tabla-registros td:last-child,
+.tabla-registros th:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabla-registros tbody tr:hover {
+  background-color: #f1f3f5;
+}
+
+/* Fila más reciente resaltada */
+.tabla-registros tbody tr:first-child td {
+  font-weight: 600;
+  color: #0d6efd;
+}
+
+.sin-registros {
+  padding: 14px 0;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #adb5bd;
+}
+
+/* ============================================================
+   Reto 2: tema destacado cuando el contador supera 10 likes
+   ============================================================ */
+body,
+.tarjeta,
+.contador,
+.subtitulo,
+.titulo,
+.registros-titulo,
+.tabla-registros th,
+.tabla-registros td {
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+body.tema-destacado {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+body.tema-destacado .tarjeta {
+  background-color: #1e293b;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+body.tema-destacado .titulo {
+  color: #ffffff;
+}
+
+body.tema-destacado .subtitulo {
+  color: #cbd5e1;
+}
+
+body.tema-destacado .contador {
+  color: #38bdf8;
+}
+
+body.tema-destacado .contador-etiqueta {
+  color: #94a3b8;
+}
+
+body.tema-destacado .registros-titulo {
+  color: #e2e8f0;
+}
+
+body.tema-destacado .tabla-registros th {
+  color: #e2e8f0;
+  background-color: #334155;
+  border-color: #475569;
+}
+
+body.tema-destacado .tabla-registros td {
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+body.tema-destacado .tabla-registros tbody tr:hover {
+  background-color: #273449;
+}
+
+body.tema-destacado .tabla-registros tbody tr:first-child td {
+  color: #38bdf8;
+}
+
+body.tema-destacado .sin-registros {
+  color: #94a3b8;
+}
+
+body.tema-destacado .btn-restar {
+  background-color: #1e293b;
+  color: #e2e8f0;
+  border-color: #475569;
+}
+
+body.tema-destacado .btn-restar:hover:not(:disabled) {
+  background-color: #334155;
+  border-color: #64748b;
+}
+
+body.tema-destacado .btn-restar:disabled {
+  background-color: #1e293b;
+  color: #64748b;
+  border-color: #334155;
+}
+
+@media (max-width: 520px) {
+  body { padding: 14px; }
+  .tarjeta { padding: 22px 18px; }
+  .acciones { flex-direction: column; }
+}
